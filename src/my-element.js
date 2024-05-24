@@ -1,17 +1,15 @@
 import { LitElement, html, css } from "lit";
 
-import { MyLeftBar } from "./my-left-bar";
+import { MyLeftBar } from "./my-left-bar.js";
 customElements.define('my-left-bar', MyLeftBar);
 
-import { Cardnewmusic } from "./newMusic";
-
-import { myTrack } from "./my-track";
+import { myTrack } from "./my-track.js";
 customElements.define('my-track', myTrack);
 
-import { Reproductor } from "./reproductor";
+import { Reproductor } from "./reproductor.js";
 customElements.define('my-reproductor', Reproductor);
 
-import { TrackList } from "./my-track-list";
+import { TrackList } from "./my-track-list.js";
 customElements.define('my-trcklist', TrackList);
 
 

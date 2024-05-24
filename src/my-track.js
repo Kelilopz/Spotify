@@ -16,109 +16,110 @@ export class myTrack extends LitElement{
   async loadSong() {
     const url = 'https://spotify23.p.rapidapi.com/artist_singles/?id=2w9zwq3AktTeYYMuhMjju8&offset=0&limit=20';
     const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': 'd87694ba5amsh04d689576cc9c38p1ca7e4jsna778d15fe1ae',
-      'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-    }
-  };;
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'f347fe88aamsh1d5c26438c319eep1fd12ejsn7a031462f644',
+            'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+        }
+    };
   
-    try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-      this.songs = result.data.artist.discography.singles.items;
-      this.requestUpdate();
-  } catch (error) {
-      console.error('Error fetching songs:', error);
-  }
-  }
+  
+  try {
+    const response = await fetch(url, options);
+    const result = await response.json();
+    this.songs = result.data.artist.discography.singles.items;
+    this.requestUpdate();
+} catch (error) {
+    console.error('Error fetching songs:', error);
+}
+}
 
-  render() {
-    return html`
-    <div class="padre">
-      ${Array.isArray(this.songs) && this.songs.length > 0 ? 
-      this.songs.map(song => html`
-      <div class="card">
-      <div class="cards">
-          <div class="cards_info">
-              <div class="aling"><button  type="button"> <box-icon name='menu'></box-icon></button></div>
-              <div class="img"><img src="${song.releases.items[0].coverArt.sources[0].url}"></div>
-              <div class="Titule_and_artis">
-                  <h3>${song.releases.items[0].name}</h3>
-              </div>
-              </div>
-              <div class="minutes_and_date">
-              <h5>${song.releases.items[0].date.year}</h5>
-          </div>
-      </div>
-  </div>  `)
+render() {
+  return html`
+  <div class="padre">
+    ${Array.isArray(this.songs) && this.songs.length > 0 ? 
+    this.songs.map(song => html`
+    <div class="card">
+    <div class="cards">
+        <div class="cards_info">
+            <div class="aling"><button  type="button"> <box-icon name='menu'></box-icon></button></div>
+            <div class="img"><img src="${song.releases.items[0].coverArt.sources[0].url}"></div>
+            <div class="Titule_and_artis">
+                <h3>${song.releases.items[0].name}</h3>
+            </div>
+            </div>
+            <div class="minutes_and_date">
+            <h5>${song.releases.items[0].date.year}</h5>
+        </div>
+    </div>
+</div>  `)
 
-   : 
-    html`<p>No hay canciones disponibles</p>`
-  }
-  </div>
+ : 
+  html`<p>No hay canciones disponibles</p>`
+}
+</div>
 `;
 }
 
-  static styles = css`
-  .padre{
-    height: 150px;
-    overflow-y: scroll;
-  }
-  .card {
-    margin: 10px;
-    padding: 0;
+static styles = css`
+.padre{
+  height: 150px;
+  overflow-y: scroll;
+}
+.card {
+  margin: 10px;
+  padding: 0;
 }
 
 .cards{
-    background: white;
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    overflow: hidden; 
-    margin-bottom: 10px
-    overflow-y: scroll;
+  background: white;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden; 
+  margin-bottom: 10px
+  overflow-y: scroll;
 }
 
 .cards h3{
-  margin: 5px;
-  font-size: 15px ;
+margin: 5px;
+font-size: 15px ;
 }
 
 .cards h5{
-  margin: 0;
-  color: rgb(124, 124, 124);
+margin: 0;
+color: rgb(124, 124, 124);
 }
 
 .cards button{
-  background: none;
-  border: none;
+background: none;
+border: none;
 }
 
 .card button:hover{
-  cursor: pointer;
+cursor: pointer;
 }
 
 .cards .cards_info{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+display: flex;
+flex-direction: row;
+align-items: center;
 }
 
 .cards .cards_info .img{
-  height: 50px;
-  width: 50px
+height: 50px;
+width: 50px
 }
 
 .cards .cards_info .img img{
-  height: 50px;
-  width: 50px;
-  object-fit: cover;
+height: 50px;
+width: 50px;
+object-fit: cover;
 }
 
 .cards .minutes_and_date{
-  padding-right: 10px
+padding-right: 10px
 }
-  `
+`
 }   

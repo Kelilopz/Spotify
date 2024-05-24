@@ -15,14 +15,13 @@ export class TrackList extends LitElement{
     async loadSong() {
         const url = 'https://spotify23.p.rapidapi.com/artist_singles/?id=2w9zwq3AktTeYYMuhMjju8&offset=0&limit=20';
         const options = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Key': 'd87694ba5amsh04d689576cc9c38p1ca7e4jsna778d15fe1ae',
-          'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-        }
-      };
-    
-    try {
+          method: 'GET',
+          headers: {
+            'X-RapidAPI-Key': 'f347fe88aamsh1d5c26438c319eep1fd12ejsn7a031462f644',
+            'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+          }
+        };
+      try {
         const response = await fetch(url, options);
         const result = await response.json();
         this.songs = result.data.artist.discography.singles.items;

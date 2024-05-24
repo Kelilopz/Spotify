@@ -3,15 +3,16 @@ import  {LitElement, html, css} from "lit";
 
 export class Reproductor extends LitElement{
   static properties = {
-    titule: {type: String}
+    titule: {type: String},
+    imagen: {typeof: String }
   }
   constructor(){
     super();
 
     this.titule = "Now Playing"
 
-    this.song = "Villians and Heroes"
-    this.album = "Metro Boomin"
+    this.song = "Kelilopz"
+    this.album = "New Song"
 
     this.plustime = "2:14"
     this.negativetime = " -1:15"
@@ -54,6 +55,9 @@ export class Reproductor extends LitElement{
     "dispositive"
   
   }
+  
+
+  /*TITULO DE NOW PLAYING ---------------------------------*/ 
   .titule{
     grid-area: titule;
     color: black;
@@ -62,6 +66,9 @@ export class Reproductor extends LitElement{
     align-items: center;
     justify-content: center;
   }
+
+
+  /*/IMAGEN DEL MEDIO PARA POER CONTROLARLA----------------/*/
   .container__image{
     grid-area: container__image;
     // background: red;
@@ -80,6 +87,9 @@ export class Reproductor extends LitElement{
     border-radius: 10px;
     width: 60%;
   }
+
+
+  /*PARTE DE NOMBRE SONG_NAME----------------------/*/
   .song_name{
     grid-area: song_name;
     color: #1DB954;
@@ -91,6 +101,7 @@ export class Reproductor extends LitElement{
     
     
   }
+
   .song_name .titule_song{
     
     color: black;
